@@ -123,7 +123,7 @@ public class Board {
     }
 
     public boolean gameover () {
-        return this.generateMoves().size == 0;
+        return false;
     }
 
     public int moveScore (Move move) {
@@ -132,4 +132,54 @@ public class Board {
         this.undo();
         return score;
     }
+    /*
+    public int score() {
+        int total = 0;
+        for (int i = 0; i < this.Pieces.length; i++) {
+            if (!this.Pieces[i].taken) {
+                total += this.Pieces[i].score;
+            }
+        }
+        return -total;
+    }
+
+    public void show() {
+        for (let i=0; i < 64; i++) {
+            setcell(i, "");
+        }
+        for (let i=0; i < this.Pieces.length; i++) {
+            if (!this.Pieces[i].taken) {
+                setcell(this.Pieces[i].i, this.Pieces[i].char);
+            }
+        }
+    }
+
+    move(move) {
+        let [from, to] = split(move);
+        let moving = this.getPiece(from);
+        let taking = this.getPiece(to);
+        if (taking != null) {
+            taking.taken = true;
+        }
+        if (moving instanceof Pawn) {
+            moving.firstMove = false;
+        }
+        moving.i = to;
+        this.white = !this.white;
+    }
+
+    boolean gameover() {
+        return this.generateMoves().length == 0;
+    }
+
+    int score() {
+        int total = 0;
+        for (int i = 0; i < this.Pieces.length; i++) {
+            if (!this.Pieces[i].taken) {
+                total += this.Pieces[i].score;
+            }
+        }
+        return -total;
+    }
+     */
 }

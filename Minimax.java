@@ -21,6 +21,7 @@ public class Minimax extends Player {
 
         if (board.white) {
             bestscore = Integer.MIN_VALUE;
+            Collections.sort(moves, (Move a, Move b) -> b.getScore() - a.getScore());
             for (Move move : moves) {
                 board.move(move);
                 score = this.minimax(depth+1, alpha, beta);
@@ -34,6 +35,7 @@ public class Minimax extends Player {
             }
         } else {
             bestscore = Integer.MAX_VALUE;
+            Collections.sort(moves, (Move a, Move b) -> a.getScore() - b.getScore());
             for (Move move : moves) {
                 board.move(move);
                 score = this.minimax(depth+1, alpha, beta);

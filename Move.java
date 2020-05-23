@@ -7,6 +7,7 @@ public class Move {
     private Point from;
     private Point to;
     private boolean firstMove;
+    private int score;
 
     public Move (Point from, Point to, Piece moving, Piece attacking, boolean firstMove) {
         this.from = from;
@@ -14,6 +15,9 @@ public class Move {
         this.moving = moving;
         this.attacking = attacking;
         this.firstMove = firstMove;
+        moving.board.move(this);
+        this.score = moving.board.score;
+        moving.board.undo();
     }
 
     public boolean equals (Move m) {
@@ -39,8 +43,13 @@ public class Move {
     public Piece getAttacking() {
         return this.attacking;
     }
-    
+
     public boolean getFirstMove() {
         return this.firstMove;
     }
+
+    public int getScore() {
+        return this.score;
+    }
+
 }
